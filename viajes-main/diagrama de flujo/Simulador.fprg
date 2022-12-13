@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MechePC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-12-13 02:41:14 p.&#160;m."/>
+        <attribute name="created" value="TWVjaGVQQztNRUNIRTsyMDIyLTEyLTEzOzEyOjI3OjAxIHAuwqBtLjsyNTY5"/>
+        <attribute name="edited" value="TWVjaGVQQztNRUNIRTsyMDIyLTEyLTEzOzAyOjQxOjE0IHAuwqBtLjsxOzI2NzY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="lugar" type="String" array="False" size=""/>
+            <declare name="boleto" type="Integer" array="False" size=""/>
+            <declare name="valorTour" type="Integer" array="False" size=""/>
+            <declare name="valorHospedaje" type="Integer" array="False" size=""/>
+            <declare name="dias" type="Integer" array="False" size=""/>
+            <declare name="personas" type="Integer" array="False" size=""/>
+            <declare name="hospedaje" type="String" array="False" size=""/>
+            <declare name="tour" type="Boolean" array="False" size=""/>
+            <declare name="pago" type="Integer" array="False" size=""/>
+            <declare name="pagoTotal" type="Integer" array="False" size=""/>
+            <declare name="total" type="Integer" array="False" size=""/>
+            <output expression="&quot;Seleccione el lugar: (Tokio, Okinawa, Hokkaido)&quot;" newline="True"/>
+            <input variable="lugar"/>
+            <if expression="lugar!=&quot;&quot;">
+                <then>
+                    <if expression="lugar==&quot;Tokio&quot;">
+                        <then>
+                            <assign variable="boleto" expression="100000"/>
+                        </then>
+                        <else>
+                            <if expression="lugar==&quot;Okinawa&quot;">
+                                <then>
+                                    <assign variable="boleto" expression="120000"/>
+                                </then>
+                                <else>
+                                    <if expression="lugar==&quot;Hokkaido&quot;">
+                                        <then>
+                                            <assign variable="boleto" expression="150000"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;seleccione un lugar&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <output expression="&quot;seleccione la cantidad de d&#237;as: &quot;" newline="True"/>
+                    <input variable="dias"/>
+                    <if expression="dias&gt;=1">
+                        <then/>
+                        <else>
+                            <do expression="&quot;ingrese cantidad de dias&quot;"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;Seleccione cantidad de personas&quot;" newline="True"/>
+                    <input variable="personas"/>
+                    <if expression="personas&gt;=1">
+                        <then>
+                            <output expression="personas" newline="True"/>
+                        </then>
+                        <else>
+                            <do expression="&quot;ingrese cantidad de personas&quot;"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;Seleccione hospedaje: (Hotel, Departamento, Casa)&quot;" newline="True"/>
+                    <input variable="hospedaje"/>
+                    <if expression="hospedaje!=&quot;&quot;">
+                        <then>
+                            <if expression="hospedaje==&quot;Hotel&quot;">
+                                <then>
+                                    <assign variable="valorHospedaje" expression="15000"/>
+                                </then>
+                                <else>
+                                    <if expression="hospedaje==&quot;Departamento&quot;">
+                                        <then>
+                                            <assign variable="valorHospedaje" expression="10000"/>
+                                        </then>
+                                        <else>
+                                            <if expression="hospedaje==&quot;Casa&quot;">
+                                                <then>
+                                                    <assign variable="valorHospedaje" expression="12000"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;Complete el tipo de hospedaje&quot;" newline="True"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;Quiere contratar un tour? (true, false)&quot;" newline="True"/>
+                    <input variable="tour"/>
+                    <if expression="tour==true">
+                        <then>
+                            <output expression="&quot;SI&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;complete&quot;" newline="True"/>
+                        </else>
+                    </if>
+                    <if expression="tour==true">
+                        <then>
+                            <assign variable="valorTour" expression="20000"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Sin Tour&quot;" newline="True"/>
+                            <assign variable="valorTour" expression="0"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;seleccione el pago: (1,6,12 cuotas)&quot;" newline="True"/>
+                    <input variable="pago"/>
+                    <if expression="pago==1">
+                        <then>
+                            <assign variable="total" expression="((boleto+valorTour+valorHospedaje)*dias)*personas"/>
+                            <assign variable="pagoTotal" expression="total"/>
+                            <output expression="&quot;Boleto/s:  &quot;&amp; boleto" newline="True"/>
+                            <output expression="&quot;Tour:  &quot;&amp; valorTour" newline="True"/>
+                            <output expression="&quot;Hospedaje en  &quot;&amp; hospedaje &amp; &quot;: &quot;&amp; valorHospedaje" newline="True"/>
+                            <output expression="&quot;Cantidad de D&#237;as: &quot;&amp; dias" newline="True"/>
+                            <output expression="&quot;Cantidad de Personas: &quot;&amp; personas" newline="True"/>
+                            <output expression="&quot;El valor total del viaje en una cuota es de $ &quot;&amp; pagoTotal" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="pago==6">
+                                <then>
+                                    <assign variable="total" expression="((boleto+valorTour+valorHospedaje)*dias)*personas"/>
+                                    <assign variable="pagoTotal" expression="(total  * 0.20) + total"/>
+                                    <output expression="&quot;Boleto/s:  &quot;&amp; boleto" newline="True"/>
+                                    <output expression="&quot;Tour:  &quot;&amp; valorTour" newline="True"/>
+                                    <output expression="&quot;Hospedaje en  &quot;&amp; hospedaje &amp; &quot;: &quot;&amp; valorHospedaje" newline="True"/>
+                                    <output expression="&quot;Cantidad de D&#237;as: &quot;&amp; dias" newline="True"/>
+                                    <output expression="&quot;Cantidad de Personas: &quot;&amp; personas" newline="True"/>
+                                    <output expression="&quot;El valor total del viaje  en 6 cuotas es de $ &quot;&amp; pagoTotal" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="pago==12">
+                                        <then>
+                                            <assign variable="total" expression="((boleto+valorTour+valorHospedaje)*dias)*personas"/>
+                                            <assign variable="pagoTotal" expression="(total  * 0.50) + total"/>
+                                            <output expression="&quot;Boleto/s:  &quot;&amp; boleto" newline="True"/>
+                                            <output expression="&quot;Tour:  &quot;&amp; valorTour" newline="True"/>
+                                            <output expression="&quot;Hospedaje en  &quot;&amp; hospedaje &amp; &quot;: &quot;&amp; valorHospedaje" newline="True"/>
+                                            <output expression="&quot;Cantidad de D&#237;as: &quot;&amp; dias" newline="True"/>
+                                            <output expression="&quot;Cantidad de Personas: &quot;&amp; personas" newline="True"/>
+                                            <output expression="&quot;El valor total del viaje en 12 cuotas es de $ &quot;&amp; pagoTotal" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;complete el tipo de pago&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;complete&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
