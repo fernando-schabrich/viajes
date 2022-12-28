@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	body{	background-color: #328bdf;}
+	
+</style>
+<body>
+
+	<center><h1>Simulador de Reservas</h1></center>
+	<center>
+		<h1 style="color: red" id="errCampos"></h1>
+	</center>
+	<div style=" margin-left : 50px;">
+
+		<p>Seleccione el lugar:</p>
+
+		<select name="lugar" id="lugar">
+			<option value="Tokio">Tokio</option>
+			<option value="Okinawa">Okinawa</option>
+			<option value="Hokkaido">Hokkaido</option>
+		</select>
+	</div>
+	<div style=" margin-left: 50px;">
+
+		<p>Cantidad de dias:</p>
+		<input type="number" min="1" name="dias" id="dias"   >
+		<h1 id="errDias"></h1>
+	</div>
+
+	<div style=" margin-left: 50px;">
+		<p>Cantidad de personas:</p>
+		<input type="number" min="1" name="personas" id="personas" >
+		<h1 id="errPersonas"></h1>
+	</div>
+
+	<div style="margin-left: 50px;">
+
+		<p>Seleccione el tipo de Hospedaje:</p>
+		<select name="hospedaje" id="hospedaje">
+			<option value="Hotel">Hotel</option>
+			<option value="Departamento">Departamento</option>
+			<option value="Casa">Casa</option>
+		</select>
+	</div>
+
+	<div style="margin-left: 50px;">
+		<p>¿Desea contratar con Tour?</p>
+		<div>
+			<select name="tour" id="tour">
+				<option value="Si">Si</option>
+				<option value="No">No</option>
+
+			</select>
+		</div>
+	</div>
+	<div style=" margin-left: 50px;">
+		<p>Seleccione el pago:</p>
+
+		<select name="pago" id="pago">
+			<option value="1">1 cuota</option>
+			<option value="6">6 cuotas</option>
+			<option value="12">12 cuotas</option>
+		</select>
+	</div>
+
+	<div style="margin-left: 50px;"><br>
+		<button type="button"  onclick="getValueInput(),ingresarDias(),ingresarPersonas()"> 
+			Calcular Valor 
+		</button>
+	</div>
+	<div>
+		<center><h3 style="color: black;"  id="valueInput"></h3></center>
+
+	</div>
+</div>
+
+
+
+
+<script src="./js/main.js">
+
+
+
+</script>
+
+</body>
+</html>
